@@ -1,0 +1,10 @@
+console.log("NFT Metadata URI:", tokenURI);
+const tokenURI = await NFT.tokenURI(1); // Assuming token ID is 1
+console.log("Owner Address:", owner);
+const owner = await NFT.ownerOf(1); // Assuming token ID is 1
+console.log("NFT Minted!");
+await tx.wait();
+const tx = await NFT.mintNFT("0xD4999553882FF572b1b74c04b0495889b0628C6c", "ipfs://bafkreiahv4b2mubgr24ody3s7hszkqrodawr3rh4c2msmfonsqjbehpodu");
+console.log(await NFT.name()); // Should return "LocalTrustNFT"
+const NFT = await ethers.getContractAt("LocalTrustNFT", "0xe04F36ab754f9eccEe21C8F983B5829A10964d87");
+.exit
