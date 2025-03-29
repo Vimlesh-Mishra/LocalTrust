@@ -1,22 +1,21 @@
-const { ethers } = require("hardhat");
+const hre = require("hardhat");
 
 async function main() {
-    const [deployer] = await ethers.getSigners();
-    console.log("Deploying contract with account:", deployer.address);
+    // 🔹 Get the contract factory before deployment
+    const LocalTrustNFT = await hre.ethers.getContractFactory("LocalTrustNFT");
 
-    const NFT = await ethers.getContractFactory("LocalTrustNFT");
-    
-    // Pass the deployer's address as the `initialOwner` argument
-    const nft = await NFT.deploy(deployer.address);
-    
-    await nft.deployed();
+    // 🔹 Deploy the contract
+    const localTrustNFT = await LocalTrustNFT.deploy();
 
-    console.log("Contract deployed to:", nft.address);
+    // 🔹 Wait for deployment (for Ethers v6)
+    await localTrustNFT.waitForDeployment();
+
+    // 🔹 Log contract address
+    console.log("Contract deployed to:", await localTrustNFT.getAddress());
 }
 
-main()
-    .then(() => process.exit(0))
-    .catch((error) => {
-        console.error(error);
-        process.exit(1);
-    });
+// 🔹 Run the script and handle errors
+main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

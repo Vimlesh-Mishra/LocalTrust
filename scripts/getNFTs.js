@@ -1,0 +1,16 @@
+const hre = require("hardhat");
+
+async function main() {
+    const contractAddress = "0xFA3ed7EA55b13A6914ff0310B2C0a9bEE1dfCF83"; // Update with your contract address
+    const [deployer] = await hre.ethers.getSigners();
+    const nftContract = await hre.ethers.getContractAt("LocalTrustNFT", contractAddress);
+
+    console.log("Fetching NFTs owned by:", deployer.address);
+    const myNFTs = await nftContract.getMyNFTs();
+    console.log("Your NFT IDs:", myNFTs);
+}
+
+main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+});

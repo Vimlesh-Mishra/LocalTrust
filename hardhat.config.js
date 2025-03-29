@@ -1,17 +1,16 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("dotenv").config();
-require("@nomiclabs/hardhat-ethers"); // Add this line if missing
+require("@nomicfoundation/hardhat-toolbox"); // No need for @nomiclabs/hardhat-ethers
 
 module.exports = {
-  solidity: "0.8.28",  // Update this line to match your contract
+  solidity: "0.8.28", 
   networks: {
-    localhost: {
-      url: process.env.RPC_URL || "http://127.0.0.1:7545",
-      accounts: [
-        process.env.PRIVATE_KEY.startsWith("0x") 
-          ? process.env.PRIVATE_KEY 
-          : `0x${process.env.PRIVATE_KEY}`
-      ]
+    hardhat: {},
+    localhost: {  // Add this block
+      url: "http://127.0.0.1:7545",
+      accounts: ["0xab8e6a98a56af29a7e0e8acdc2f8d5e430c1e4fd123ed71c737044e4cc2b4155"],
+    },
+    ganache: {
+      url: "http://127.0.0.1:7545",
+      accounts: ["0xab8e6a98a56af29a7e0e8acdc2f8d5e430c1e4fd123ed71c737044e4cc2b4155"], // Use your actual private key
     }
   }
 };
