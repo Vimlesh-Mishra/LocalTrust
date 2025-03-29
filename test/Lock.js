@@ -124,3 +124,17 @@ describe("Lock", function () {
     });
   });
 });
+ // Should return "LocalTrustNFT" // Should return "LocalTrustNFT" // Should return "LocalTrustNFT" // Should return "LocalTrustNFT"
+  // Should return "LocalTrustNFT"
+   // Should return "LocalTrustNFT"
+
+    // Should return "LocalTrustNFT"
+     // Should return "LocalTrustNFT"
+      // Should return "LocalTrustNFT"
+
+       // Should return "LocalTrustNFT"
+        // Should return "LocalTrustNFT"
+         // Should return "LocalTrustNFT"
+          // Should return "LocalTrustNFT"
+
+         // Should return "LocalTrustNFT"
